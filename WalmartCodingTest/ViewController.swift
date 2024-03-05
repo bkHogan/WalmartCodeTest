@@ -9,8 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var tableView: UITableView!
     var countries: [Country] = []
     var filteredCountries: [Country] = []
 
@@ -19,22 +19,38 @@ class ViewController: UIViewController {
         fetchCountries()
         setupSearchController()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+           super.viewDidAppear(animated)
+           fetchCountries()
+       }
 
+    
     func fetchCountries() {
         guard let url = URL(string: "https://gist.githubusercontent.com/peymano-wmt/32dcb892b06648910ddd40406e37fdab/raw/db25946fd77c5873b0303b858e861ce724e0dcd0/countries.json") else { return }
         
         URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-            guard let data = data, error == nil else { return }
+            guard let data = data, error == nil else {
+                print("Error fetching data:", error ?? "Unknown error")
+                return
+            }
             
             do {
                 let countries = try JSONDecoder().decode([Country].self, from: data)
-                self?.countries = countries
-                self?.filteredCountries = countries
+               // print("Countries fetched successfully:", countries)
+                
+                // Update the countries array and reload the table view on the main thread
                 DispatchQueue.main.async {
+                    self?.countries = countries
+                    self?.filteredCountries = countries
                     self?.tableView.reloadData()
+                    
+                    // Print the contents of the countries array
+//                    print("**********************************************")
+//                    print("Countries assigned:", self?.countries ?? "Empty")
                 }
             } catch {
-                print("Error decoding JSON: \(error)")
+                print("Error decoding JSON:", error)
             }
         }.resume()
     }
@@ -56,7 +72,13 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CountryCell", for: indexPath) as! CountryCell
+       
+        // Dequeue a reusable cell using the custom CountryTableViewCell class
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "CountryTableViewCell", for: indexPath) as? CountryTableViewCell else {
+                    fatalError("Unable to dequeue CountryTableViewCell")
+                }
+        
+        // let cell = tableView.dequeueReusableCell(withIdentifier: "CountryTableViewCell", for: indexPath) as! CountryTableViewCell
         let country = filteredCountries[indexPath.row]
         cell.configure(with: country)
         return cell

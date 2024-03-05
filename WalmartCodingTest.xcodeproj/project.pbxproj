@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C2072C52B96A14B00FDB83A /* CountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2072C42B96A14B00FDB83A /* CountryTableViewCell.swift */; };
 		4CD735022B94CED9008DEF93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD735012B94CED9008DEF93 /* AppDelegate.swift */; };
 		4CD735042B94CED9008DEF93 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD735032B94CED9008DEF93 /* SceneDelegate.swift */; };
 		4CD735062B94CED9008DEF93 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD735052B94CED9008DEF93 /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C2072C42B96A14B00FDB83A /* CountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewCell.swift; sourceTree = "<group>"; };
 		4CD734FE2B94CED9008DEF93 /* WalmartCodingTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WalmartCodingTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CD735012B94CED9008DEF93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CD735032B94CED9008DEF93 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				4CD735032B94CED9008DEF93 /* SceneDelegate.swift */,
 				4CD735052B94CED9008DEF93 /* ViewController.swift */,
 				4CD735072B94CED9008DEF93 /* Main.storyboard */,
+				4C2072C42B96A14B00FDB83A /* CountryTableViewCell.swift */,
 				4CD7350A2B94CEDF008DEF93 /* Assets.xcassets */,
 				4CD7350C2B94CEDF008DEF93 /* LaunchScreen.storyboard */,
 				4CD7350F2B94CEDF008DEF93 /* Info.plist */,
@@ -144,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C2072C52B96A14B00FDB83A /* CountryTableViewCell.swift in Sources */,
 				4CD735162B94CF64008DEF93 /* Country.swift in Sources */,
 				4CD735062B94CED9008DEF93 /* ViewController.swift in Sources */,
 				4CD735182B94CF82008DEF93 /* CountryCell.swift in Sources */,
